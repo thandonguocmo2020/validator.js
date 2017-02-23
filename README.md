@@ -80,36 +80,40 @@ Phân tích bất kỳ điều gì khác một chuỗi là một lỗi trả v�
 - **isHalfWidth(str)** - check if the string contains any half-width chars.
 - **isHexColor(str)** - check if the string is a hexadecimal color.
 - **isHexadecimal(str)** - check if the string is a hexadecimal number.
-- **isIP(str [, version])** - check if the string is an IP (version 4 or 6).
+- **isIP(str [, version])** - nếu các chuỗi là một địa chỉ IP (version 4 or 6).
 - **isISBN(str [, version])** - check if the string is an ISBN (version 10 or 13).
-- **isISSN(str [, options])** - check if the string is an [ISSN](https://en.wikipedia.org/wiki/International_Standard_Serial_Number). `options` is an object which defaults to `{ case_sensitive: false, require_hyphen: false }`. If `case_sensitive` is true, ISSNs with a lowercase `'x'` as the check digit are rejected.
+- **isISSN(str [, options])** - Nếu là một tiêu chuẩn Serial Number  [ISSN](https://en.wikipedia.org/wiki/International_Standard_Serial_Number). `options`Một object tùy chọn có giá trị mặc định `{ case_sensitive: false, require_hyphen: false }`. If `case_sensitive` is true, ISSNs with a lowercase `'x'` as the check digit are rejected.
 - **isISIN(str)** - check if the string is an [ISIN][ISIN] (stock/security identifier).
 - **isISO8601(str)** - check if the string is a valid [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date.
-- **isIn(str, values)** - check if the string is in a array of allowed values.
-- **isInt(str [, options])** - check if the string is an integer. `options` is an object which can contain the keys `min` and/or `max` to check the integer is within boundaries (e.g. `{ min: 10, max: 99 }`). `options` can also contain the key `allow_leading_zeroes`, which when set to false will disallow integer values with leading zeroes (e.g. `{ allow_leading_zeroes: false }`). Finally, `options` can contain the keys `gt` and/or `lt` which will enforce integers being greater than or less than, respectively, the value provided (e.g. `{gt: 1, lt: 4}` for a number between 1 and 4).
-- **isJSON(str)** - check if the string is valid JSON (note: uses JSON.parse).
-- **isLength(str, options)** - check if the string's length falls in a range. `options` is an object which defaults to `{min:0, max: undefined}`. Note: this function takes into account surrogate pairs.
-- **isLowercase(str)** - check if the string is lowercase.
-- **isMACAddress(str)** - check if the string is a MAC address.
-- **isMD5(str)** - check if the string is a MD5 hash.
-- **isMobilePhone(str, locale)** - check if the string is a mobile phone number, (locale is one of `['ar-DZ', 'ar-SA', 'ar-SY', 'cs-CZ', 'de-DE', 'da-DK', 'el-GR', 'en-AU', 'en-GB', 'en-HK', 'en-IN',  'en-NG', 'en-NZ', 'en-US', 'en-CA', 'en-ZA', 'en-ZM', 'es-ES', 'fi-FI', 'fr-FR', 'he-IL', 'hu-HU', 'it-IT', 'ja-JP', 'ms-MY', 'nb-NO', 'nn-NO', 'pl-PL', 'pt-PT', 'ru-RU', 'sr-RS', 'tr-TR', 'vi-VN', 'zh-CN', 'zh-TW']`).
-- **isMongoId(str)** - check if the string is a valid hex-encoded representation of a [MongoDB ObjectId][mongoid].
-- **isMultibyte(str)** - check if the string contains one or more multibyte chars.
-- **isNumeric(str)** - check if the string contains only numbers.
-- **isSurrogatePair(str)** - check if the string contains any surrogate pairs chars.
-- **isURL(str [, options])** - check if the string is an URL. `options` is an object which defaults to `{ protocols: ['http','https','ftp'], require_tld: true, require_protocol: false, require_host: true, require_valid_protocol: true, allow_underscores: false, host_whitelist: false, host_blacklist: false, allow_trailing_dot: false, allow_protocol_relative_urls: false }`.
-- **isUUID(str [, version])** - check if the string is a UUID (version 3, 4 or 5).
-- **isUppercase(str)** - check if the string is uppercase.
+- **isIn(str, values)**  Kiểm tra chuỗi có trong một mảng cho trc .
+- **isInt(str [, options])** - Kiểm tra chuỗi có phải là một number integer. `options` là một object mà có thể chứa các key `min` and/or `max` để check các số trong một khoảng (e.g. `{ min: 10, max: 99 }`). `options` cũng có thể chứa các key `allow_leading_zeroes`,mà khi nào set giá trị false có thể  cấm không cho phép integer values với giá trị 0 (e.g. `{ allow_leading_zeroes: false }`). cuối cùng , `options` các tùy chọn có thể chứa  keys `gt` và/hoặc `lt` ó sẽ thực thi các số nguyên là lớn hơn hoặc nhỏ hơn, tương ứng, giá trị cung cấp (e.g. `{gt: 1, lt: 4}` for a number between 1 and 4).
+- **isJSON(str)** - Check nếu giá trị có phải là chuỗi json (note: uses JSON.parse).
+- **isLength(str, options)** -kiểm tra nếu chiều dài của chuỗi rơi trong một phạm vi. `options` là một object với các giá trị mặc định `{min:0, max: undefined}`. Note: this function takes into account surrogate pairs.
+- **isLowercase(str)** - kiểm tra chuỗi có phải lowercase.
+- **isMACAddress(str)** - kiểm tra một địa chỉ  MAC address.
+- **isMD5(str)** - kiểm tra chuỗi là một mã MD5 hash.
+- **isMobilePhone(str, locale)** - kiểm tra chuỗi có phải là một trong các số điện thoại, (locale là một tên với giá trị của các quốc gia `['ar-DZ', 'ar-SA', 'ar-SY', 'cs-CZ', 'de-DE', 'da-DK', 'el-GR', 'en-AU', 'en-GB', 'en-HK', 'en-IN',  'en-NG', 'en-NZ', 'en-US', 'en-CA', 'en-ZA', 'en-ZM', 'es-ES', 'fi-FI', 'fr-FR', 'he-IL', 'hu-HU', 'it-IT', 'ja-JP', 'ms-MY', 'nb-NO', 'nn-NO', 'pl-PL', 'pt-PT', 'ru-RU', 'sr-RS', 'tr-TR', 'vi-VN', 'zh-CN', 'zh-TW']`).
+- **isMongoId(str)** -  kiểm tra xem chuỗi là một đại diện hex-mã hóa giá trị của một OBJECT ID của [MongoDB ObjectId][mongoid].
+- **isMultibyte(str)** - iểm tra xem chuỗi có chứa một hoặc nhiều ký tự multibyte.
+- **isNumeric(str)** - kiểm tra xem chuỗi có chứa numbers.
+- **isSurrogatePair(str)** - kiểm tra chuỗi xem có bất kỳ kí tự đại diện.
+- **isURL(str [, options])** - kiểm tra chuỗi có phải là một url  `options` có giá trị là một object `{ protocols: ['http','https','ftp'], require_tld: true, require_protocol: false, require_host: true, require_valid_protocol: true, allow_underscores: false, host_whitelist: false, host_blacklist: false, allow_trailing_dot: false, allow_protocol_relative_urls: false }`.
+- **isUUID(str [, version])** - kiểm tra chuỗi có phải là một uuid UUID (version 3, 4 or 5).
+- **isUppercase(str)** - kiểm tra chuỗi có phải là uppercase.
 - **isVariableWidth(str)** - check if the string contains a mixture of full and half-width chars.
-- **isWhitelisted(str, chars)** - checks characters if they appear in the whitelist.
-- **matches(str, pattern [, modifiers])** - check if string matches the pattern. Either `matches('foo', /foo/i)` or `matches('foo', 'foo', 'i')`.
+- **isWhitelisted(str, chars)** - kiểm tra các kí tự có trong danh sách không cho phép backlish từ 
+- **matches(str, pattern [, modifiers])** - kiểm tra chuỗi có phù hợp với   pattern. cả hai `matches('foo', /foo/i)` hoặc `matches('foo', 'foo', 'i')`.
 
 ### Sanitizers
 
-- **blacklist(input, chars)** - remove characters that appear in the blacklist. The characters are used in a RegExp and so you will need to escape some chars, e.g. `blacklist(input, '\\[\\]')`.
+Loại bỏ các kí tự mã. 
+
+
+- **blacklist(input, chars)** - xóa bỏ các kí tự có trong backlist từ đầu vào `blacklist(input, '\\[\\]')`.
+
 - **escape(input)** - replace `<`, `>`, `&`, `'`, `"` and `/` with HTML entities.
-- **unescape(input)** - replaces HTML encoded entities with `<`, `>`, `&`, `'`, `"` and `/`.
-- **ltrim(input [, chars])** - trim characters from the left-side of the input.
+- **unescape(input)** - thay thế các thực thể HTML mã hóa với `<`, `>`, `&`, `'`, `"` and `/`.
+- **ltrim(input [, chars])** - cắt ký tự từ bên trái của đầu vào.
 - **normalizeEmail(email [, options])** - canonicalizes an email address. `options` is an object with the following keys and default values:
   - *all_lowercase: true* - Transforms the local part (before the @ symbol) of all email addresses to lowercase. Please note that this may violate RFC 5321, which gives providers the possibility to treat the local part of email addresses in a case sensitive way (although in practice most - yet not all - providers don't). The domain part of the email address is always lowercased, as it's case insensitive per RFC 1035.
   - *gmail_lowercase: true* - GMail addresses are known to be case-insensitive, so this switch allows lowercasing them even when *all_lowercase* is set to false. Please note that when *all_lowercase* is true, GMail addresses are lowercased regardless of the value of this setting.
@@ -122,14 +126,14 @@ Phân tích bất kỳ điều gì khác một chuỗi là một lỗi trả v�
   - *yahoo_remove_subaddress: true*: Normalizes addresses by removing "sub-addresses", which is the part following a "-" sign (e.g. "foo-bar@yahoo.com" becomes "foo@yahoo.com").
   - *icloud_lowercase: true* - iCloud addresses (including MobileMe) are known to be case-insensitive, so this switch allows lowercasing them even when *all_lowercase* is set to false. Please note that when *all_lowercase* is true, iCloud addresses are lowercased regardless of the value of this setting.
   - *icloud_remove_subaddress: true*: Normalizes addresses by removing "sub-addresses", which is the part following a "+" sign (e.g. "foo+bar@icloud.com" becomes "foo@icloud.com").
-- **rtrim(input [, chars])** - trim characters from the right-side of the input.
-- **stripLow(input [, keep_new_lines])** - remove characters with a numerical value < 32 and 127, mostly control characters. If `keep_new_lines` is `true`, newline characters are preserved (`\n` and `\r`, hex `0xA` and `0xD`). Unicode-safe in JavaScript.
-- **toBoolean(input [, strict])** - convert the input string to a boolean. Everything except for `'0'`, `'false'` and `''` returns `true`. In strict mode only `'1'` and `'true'` return `true`.
-- **toDate(input)** - convert the input string to a date, or `null` if the input is not a date.
-- **toFloat(input)** - convert the input string to a float, or `NaN` if the input is not a float.
-- **toInt(input [, radix])** - convert the input string to an integer, or `NaN` if the input is not an integer.
-- **trim(input [, chars])** - trim characters (whitespace by default) from both sides of the input.
-- **whitelist(input, chars)** - remove characters that do not appear in the whitelist. The characters are used in a RegExp and so you will need to escape some chars, e.g. `whitelist(input, '\\[\\]')`.
+- **rtrim(input [, chars])** - xóa bỏ các kí tự từ bên phải của chuỗi đầu vào tìm thấy
+- **stripLow(input [, keep_new_lines])** - xóa bỏ các kiw tự với các vị trí số < 32 and 127, chủ yếu là kiểm tra nhân vật. Nếu `keep_new_lines` là `true`, ký tự xuống dòng được bảo quản (` \ n` và `\ r`, hex` 0xA` và `0xD`). Unicode-an toàn trong JavaScript.
+- **toBoolean(input [, strict])** - chuyển đổi các chuỗi đầu vào cho một boolean. Tất cả mọi thứ trừ `'0'`, `'false'` and `''` returns `true`. Trong chế độ nghiêm ngặt chỉ `'1'` and `'true'` return `true`.
+- **toDate(input)** - chuyển đổi các chuỗi đầu vào đến một ngày  hoặc  `null` nếu đầu vào không phải là một date.
+- **toFloat(input)** - chuyển đổi các chuỗi đầu vào cho một float, hoặc `NaN` nếu input đầu vào không phải float.
+- **toInt(input [, radix])** - chuyển đổi các chuỗi đầu vào cho một integer, hoặc `NaN` nếu đầu vào không phải một integer.
+- **trim(input [, chars])** - (khoảng trắng theo mặc định) từ cả hai bên của đầu vào.
+- **whitelist(input, chars)** - loại bỏ ký tự không xuất hiện trong list . Các nhân vật được sử dụng trong một biểu thức chính quy và do đó bạn sẽ cần phải thoát khỏi một số ký tự đặc biệt ví dụ , e.g. `whitelist(input, '\\[\\]')`.
 
 ### XSS Sanitization
 
