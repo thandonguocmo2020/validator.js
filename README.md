@@ -2,11 +2,13 @@
 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url] [![Downloads][downloads-image]][npm-url]
 
-A library of string validators and sanitizers.
+
+Một thư viện của xác nhận string và dọn dẹp code "ví dụ script". 
+
 
 ### Server-side usage
 
-Install the library with `npm install validator`
+cài đtặ thư viện với  `npm install validator`
 
 ```javascript
 var validator = require('validator');
@@ -20,7 +22,7 @@ validator.isEmail('foo@bar.com'); //=> true
 import validator from 'validator';
 ```
 
-Or, import only a subset of the library:
+Hoặc bạn có thể import 1 phần của thư viện
 
 ```javascript
 import isEmail from 'validator/lib/isEmail';
@@ -28,7 +30,7 @@ import isEmail from 'validator/lib/isEmail';
 
 ### Client-side usage
 
-The library can be loaded either as a standalone script, or through an [AMD][amd]-compatible loader
+Thư viện có thể được nạp hoặc như một kịch bản độc lập, hoặc thông qua một bộ xử lý  [AMD][amd]-loader -tương thích
 
 ```html
 <script type="text/javascript" src="validator.min.js"></script>
@@ -37,7 +39,7 @@ The library can be loaded either as a standalone script, or through an [AMD][amd
 </script>
 ```
 
-The library can also be installed through [bower][bower]
+Cài đặt với  [bower][bower]
 
 ```bash
 $ bower install validator-js
@@ -45,34 +47,36 @@ $ bower install validator-js
 
 ### Strings only
 
-**This library validates and sanitizes strings only.**
+**Thư viện này chỉ xác nhận  "validates" and sanitizes "dọn dẹp script html hoặc javascript" chuỗi duy nhất**
 
-If you're not sure if your input is a string, coerce it using `input + ''`.
-Passing anything other than a string is an error.
+
+Nếu bạn không chắc chắn đầu vào input là một chuỗi hãy sử dụng  `input + ''`.
+Phân tích bất kỳ điều gì khác một chuỗi là một lỗi trả về.
 
 ### Validators
 
-- **contains(str, seed)** - check if the string contains the seed.
-- **equals(str, comparison)** - check if the string matches the comparison.
-- **isAfter(str [, date])** - check if the string is a date that's after the specified date (defaults to now).
-- **isAlpha(str [, locale])** - check if the string contains only letters (a-zA-Z). Locale is one of `['ar', 'ar-AE', 'ar-BH', 'ar-DZ', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-LY', 'ar-MA', 'ar-QA', 'ar-QM', 'ar-SA', 'ar-SD', 'ar-SY', 'ar-TN', 'ar-YE', 'cs-CZ', 'da-DK', 'de-DE', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'en-ZM', 'es-ES', 'fr-FR', 'hu-HU', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sr-RS', 'sr-RS@latin', 'tr-TR', 'uk-UA']`) and defaults to `en-US`.
-- **isAlphanumeric(str [, locale])** - check if the string contains only letters and numbers. Locale is one of `['ar', 'ar-AE', 'ar-BH', 'ar-DZ', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-LY', 'ar-MA', 'ar-QA', 'ar-QM', 'ar-SA', 'ar-SD', 'ar-SY', 'ar-TN', 'ar-YE', 'cs-CZ', 'da-DK', 'de-DE', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'en-ZM', 'es-ES', 'fr-FR', 'fr-BE', 'hu-HU', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sr-RS', 'sr-RS@latin', 'tr-TR', 'uk-UA']`) and defaults to `en-US`.
-- **isAscii(str)** - check if the string contains ASCII chars only.
-- **isBase64(str)** - check if a string is base64 encoded.
-- **isBefore(str [, date])** - check if the string is a date that's before the specified date.
-- **isBoolean(str)** - check if a string is a boolean.
-- **isByteLength(str, options)** - check if the string's length (in bytes) falls in a range.`options` is an object which defaults to `{min:0, max: undefined}`.
-- **isCreditCard(str)** - check if the string is a credit card.
-- **isCurrency(str, options)** - check if the string is a valid currency amount. `options` is an object which defaults to `{symbol: '$', require_symbol: false, allow_space_after_symbol: false, symbol_after_digits: false, allow_negatives: true, parens_for_negatives: false, negative_sign_before_digits: false, negative_sign_after_digits: false, allow_negative_sign_placeholder: false, thousands_separator: ',', decimal_separator: '.', allow_space_after_digits: false }`.
-- **isDataURI(str)** - check if the string is a [data uri format](https://developer.mozilla.org/en-US/docs/Web/HTTP/data_URIs).
-- **isDate(str)** - check if the string is a date.
-- **isDecimal(str)** - check if the string represents a decimal number, such as 0.1, .3, 1.1, 1.00003, 4.0, etc.
-- **isDivisibleBy(str, number)** - check if the string is a number that's divisible by another.
-- **isEmail(str [, options])** - check if the string is an email. `options` is an object which defaults to `{ allow_display_name: false, require_display_name: false, allow_utf8_local_part: true, require_tld: true }`. If `allow_display_name` is set to true, the validator will also match `Display Name <email-address>`. If `require_display_name` is set to true, the validator will reject strings without the format `Display Name <email-address>`. If `allow_utf8_local_part` is set to false, the validator will not allow any non-English UTF8 character in email address' local part. If `require_tld` is set to false, e-mail addresses without having TLD in their domain will also be matched.
-- **isEmpty(str)** - check if the string has a length of zero.
-- **isFQDN(str [, options])** - check if the string is a fully qualified domain name (e.g. domain.com). `options` is an object which defaults to `{ require_tld: true, allow_underscores: false, allow_trailing_dot: false }`.
-- **isFloat(str [, options])** - check if the string is a float. `options` is an object which can contain the keys `min`, `max`, `gt`, and/or `lt` to validate the float is within boundaries (e.g. `{ min: 7.22, max: 9.55 }`). `min` and `max` are equivalent to 'greater or equal' and 'less or equal', respectively while `gt` and `lt` are their strict counterparts.
-- **isFullWidth(str)** - check if the string contains any full-width chars.
+- **contains(str, seed)** - Kiểm tra chuỗi có bao gồm một chuỗi mẫu.
+- **equals(str, comparison)** - Kiểm tra chuỗi có phù hợp với chuỗi so sánh
+- **isAfter(str [, date])** - Kiểm tra chuỗi là ngày sau một ngày qui định. mặc định là hôm nay (defaults to now).
+- **isAlpha(str [, locale])** -kiểm tra xem chuỗi có chứa chữ cái (a-zA-Z). Locale là một của `['ar', 'ar-AE', 'ar-BH', 'ar-DZ', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-LY', 'ar-MA', 'ar-QA', 'ar-QM', 'ar-SA', 'ar-SD', 'ar-SY', 'ar-TN', 'ar-YE', 'cs-CZ', 'da-DK', 'de-DE', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'en-ZM', 'es-ES', 'fr-FR', 'hu-HU', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sr-RS', 'sr-RS@latin', 'tr-TR', 'uk-UA']`) and defaults to `en-US`.
+- **isAlphanumeric(str [, locale])** -kiểm tra xem chuỗi chỉ chứa chữ cái và số . LLocale là một của `['ar', 'ar-AE', 'ar-BH', 'ar-DZ', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-LY', 'ar-MA', 'ar-QA', 'ar-QM', 'ar-SA', 'ar-SD', 'ar-SY', 'ar-TN', 'ar-YE', 'cs-CZ', 'da-DK', 'de-DE', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'en-ZM', 'es-ES', 'fr-FR', 'fr-BE', 'hu-HU', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sr-RS', 'sr-RS@latin', 'tr-TR', 'uk-UA']`) and defaults to `en-US`.
+- **isAscii(str)** - kiểm tra xem chuỗi chứa ký tự ASCII..
+- **isBase64(str)** - kiểm tra xem một chuỗi là base64 mã hóa..
+- **isBefore(str [, date])** - kiểm tra xem chuỗi là một ngày trước ngày quy định.
+- **isBoolean(str)** -kiểm tra xem một chuỗi là một boolean "true hoặc false"
+- **isByteLength(str, options)** - kiểm tra nếu chiều dài của chuỗi  (nằm trong bytes) có độ dài.`options` là một đối tượng mặc định  `{min:0, max: undefined}`.
+- **isCreditCard(str)** - kiểm tra xem chuỗi là thẻ tín dụng.
+- **isCurrency(str, options)** - kiểm tra xem chuỗi là giá trị tiền tệ hợp lệ.. `options` là một object với mặc định `{symbol: '$', require_symbol: false, allow_space_after_symbol: false, symbol_after_digits: false, allow_negatives: true, parens_for_negatives: false, negative_sign_before_digits: false, negative_sign_after_digits: false, allow_negative_sign_placeholder: false, thousands_separator: ',', decimal_separator: '.', allow_space_after_digits: false }`.
+- **isDataURI(str)** - kiểm tra xem chuỗi là một [data uri format](https://developer.mozilla.org/en-US/docs/Web/HTTP/data_URIs).
+- **isDate(str)** - Kiểm tra chuỗi nếu là một ngày.
+- **isDecimal(str)** - kiểm tra xem chuỗi đại diện cho một số thập phân, chẳng hạn như 0.1, .3, 1.1, 1.00003, 4.0, etc.
+- **isDivisibleBy(str, number)** - kiểm tra chuỗi là chia hết cho number.
+- **isEmail(str [, options])** - Kiểm tra nếu string là một email. `options` là một object với các giá trị mặc định `{ allow_display_name: false, require_display_name: false, allow_utf8_local_part: true, require_tld: true }`. Nếu `allow_display_name` Là thiết lập bằng true,Các xác nhận validator có thể xác nhận phù hợp với  `tên hiển thị trong <email-address>`. Nếu `require_display_name` là được thiết lập bằng true. Các xác nhận validator có thể loại bỏ các chuỗi mà không phải bên trong định dạng `Display Name <email-address>`. Nếu `allow_utf8_local_part` được thiết lập để  false, các xác nhận validator có thể không được áp dụng với non-English UTF8 kí tự trong địa chỉ email 'local part. Nếu  `require_tld` được thiết lập là false, e-mail addresses không phải có TLD trong của domain cũng sẽ được phù hợp.
+
+- **isEmpty(str)** - Nếu chuỗi có một chiều dài là 0;
+- **isFQDN(str [, options])** - Kiểm tra chuỗi là một domain đầy đủ (e.g. domain.com). `options` nó là một object với các thiết lập mặc định `{ require_tld: true, allow_underscores: false, allow_trailing_dot: false }`.
+- **isFloat(str [, options])** - Kiểm tra nếu một chuỗi là float. `options` là một object có thể chứa các `min`, `max`, `gt`, and/or `lt` để xác nhận các float nằm trong khoảng (e.g. `{ min: 7.22, max: 9.55 }`). `min` và  `max` là  tương tự đến 'greater hoặc equal' và 'less or equal', tương ứng `gt` và `lt` là giống nhau.
+- **isFullWidth(str)** - Kiểm tra chuỗi khớp với chuỗi full.
 - **isHalfWidth(str)** - check if the string contains any half-width chars.
 - **isHexColor(str)** - check if the string is a hexadecimal color.
 - **isHexadecimal(str)** - check if the string is a hexadecimal number.
